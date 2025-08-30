@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-function userAuth() {
+function useUserAuth() {
     const { user } = useSelector((state: any) => state.auth);
     if (user) {
         return true;
@@ -10,4 +10,4 @@ function userAuth() {
     }
 }
 
-export default userAuth;
+export default useUserAuth;

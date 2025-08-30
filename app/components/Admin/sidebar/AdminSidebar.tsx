@@ -12,7 +12,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import Image from "next/image";
-import avatarDefault from "../../../../public/images/avatar.png";
+// import avatarDefault from "../../../../public/images/avatar.png"; // Commented out due to corrupted file
 import "./customSidebar.css";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
@@ -111,7 +111,7 @@ const AdminSidebar: React.FC<{ collapsed: boolean; setCollapsed: React.Dispatch<
                         }}
                     >
                         <Image
-                            src={user?.avatar ? user?.avatar?.url : avatarDefault}
+                                                            src={user?.avatar ? user?.avatar?.url : "/images/business.png"}
                             alt="avatar"
                             width={50}
                             height={50}

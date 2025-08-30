@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
 import Image from "next/image";
-import avatarIcon from "../../../public/images/avatar.png";
+// import avatarIcon from "../../../public/images/avatar.png"; // Commented out due to corrupted file
 import { styles } from "@/app/styles/style";
 import { AiOutlineCamera } from "react-icons/ai";
 import { useLoadUserQuery } from "@/redux/features/api/apiSlice";
@@ -59,7 +59,7 @@ const ProfileInfo: FC<Props> = ({ user, avatar }) => {
             <div className="flex-1 flex flex-col items-center justify-center">
                 <div className="relative">
                     <Image
-                        src={avatar || avatarIcon}
+                                                        src={avatar || "/images/business.png"}
                         alt="avatar"
                         width={120}
                         height={120}

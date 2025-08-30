@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React, { FC } from "react";
-import avatarDefault from "../../../public/images/avatar.png";
+// import avatarDefault from "../../../public/images/avatar.png"; // Commented out due to corrupted file
 import { RiLockPasswordLine } from "react-icons/ri";
 import { SiCoursera } from "react-icons/si";
 import { AiOutlineLogout } from "react-icons/ai";
@@ -25,7 +25,7 @@ const SideBarProfile: FC<Props> = ({ user, active, avatar, setActive, logOutHand
                 onClick={() => setActive(1)}
             >
                 <Image
-                    src={avatar ? avatar : avatarDefault}
+                                                    src={avatar ? avatar : "/images/business.png"}
                     alt=""
                     width={20}
                     height={20}

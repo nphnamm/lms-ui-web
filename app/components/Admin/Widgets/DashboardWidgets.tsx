@@ -54,10 +54,12 @@ const DashboardWidgets: FC<Props> = ({ open }) => {
                 const usersLastTwoMonths = data.users.last12Months.slice(-2);
                 const ordersLastTwoMonths = ordersData.orders.last12Months.slice(-2);
 
-                if(usersLastTwoMonths.length === 2 && ordersLast)
+                if(usersLastTwoMonths.length === 2 && ordersLastTwoMonths.length === 2) {
+                    // Calculate comparison percentages here
+                }
             }
         }
-    })
+    }, [data, ordersData, isLoading, ordersLoading])
 
     return (
         <div className="mt-[30px] min-h-screen">

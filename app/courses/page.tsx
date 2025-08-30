@@ -90,7 +90,7 @@ const Page = (props: Props) => {
                         <br />
                         <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-3 lg:gap-[25px] 1500px:grid-cols-4">
                             {courses &&
-                                courses.map((item: any, index: number) => <CourseCard item={item} key={index} />)}
+                                courses.map((item: any, index: number) => <CourseCard item={item} key={index} user={null} />)}
                         </div>
                     </div>
                 </>

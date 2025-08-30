@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
-import avatar from "../../public/images/avatar.png";
+// import avatar from "../../public/images/avatar.png"; // Commented out due to corrupted file
 import { useSocialAuthMutation } from "@/redux/features/auth/authApi";
 import toast from "react-hot-toast";
 import Loader from "./Loader/Loader";
@@ -109,7 +109,7 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, setRoute, open }) => {
                             {user ? (
                                 <Link href="/profile">
                                     <Image
-                                        src={user.avatar?.url || avatar}
+                                        src={user.avatar?.url || "/images/business.png"}
                                         alt=""
                                         width={30}
                                         height={30}
