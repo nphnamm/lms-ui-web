@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import io from 'socket.io-client';
 const ENDPOINT = "http://localhost:8000";
-const socket = io("ws://localhost:8000", {
+const socket = io("ws://https://lms-api-qssd.onrender.com", {
     transports: ["websocket"],
   });
 type Props = {
