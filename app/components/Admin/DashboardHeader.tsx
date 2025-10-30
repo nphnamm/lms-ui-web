@@ -9,7 +9,7 @@ import {
 import io from "socket.io-client";
 import { format } from "timeago.js";
 const ENDPOINT = "http://localhost:8000";
-const socket = io("ws://https://lms-api-qssd.onrender.com", {
+const socket = io("ws://localhost:8000", {
     transports: ["websocket"],
 });
 

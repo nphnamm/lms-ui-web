@@ -43,11 +43,12 @@ const CourseDetails = ({ data, stripePromise, clientSecret, setRoute, setOpen: o
     // console.log('stripePromise',stripePromise);
     // console.log('clientSecret',clientSecret)
     useEffect(() => {
-        const isPurchased = user && user?.user?.courses?.find((item: any) => item._id === data._id);
-        console.log(isPurchased);
+        const isPurchased = user && user?.courses?.find((item: any) => item._id === data._id);
         setIsPurchased(isPurchased);
     }, [user]);
     console.log("data", data);
+    console.log("user", user);
+    console.log("isPurchased", isPurchased);
     return (
         <div>
             <div className="w-[90%] 800px:w-[90%] m-auto py-5">
@@ -177,12 +178,12 @@ const CourseDetails = ({ data, stripePromise, clientSecret, setRoute, setOpen: o
                                         Enter to Course
                                     </Link>
                                 ) : (
-                                    <Link
+                                    <button
                                         className={`${styles.button} !w-[180px] my-3 font-Poppins cursor-pointer !bg-[crimson]`}
-                                        href={`/course-access/${data._id}`}
+                                        onClick={handleOrder}
                                     >
-                                        Enter to Course
-                                    </Link>
+                                        Buy Now
+                                    </button>
                                 )}
                             </div>
                             <br />

@@ -1,5 +1,5 @@
 import { useGetCourseContentQuery } from "@/redux/features/courses/coursesApi";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Loader from "../Loader/Loader";
 import Heading from "@/app/utils/Heading";
 import CourseContentMedia from "./CourseContentMedia";
@@ -12,12 +12,19 @@ type Props = {
 };
 
 const CourseContent = ({ id, user }: Props) => {
-    const { data: contentData, isLoading,refetch } = useGetCourseContentQuery(id);
-    const data = contentData?.content;
+    const { data: contentData, isLoading, refetch } = useGetCourseContentQuery(id);
+    const data = contentData?.content ?? [];
     const [open, setOpen] = useState(false);
     const [activeVideo, setActiveVideo] = useState(0);
     const [route, setRoute] = useState("Login");
-    console.log('dâta',data)
+    
+    // Ensure activeVideo is always within bounds when content changes
+    useEffect(() => {
+        if (activeVideo >= data.length && data.length > 0) {
+            setActiveVideo(0);
+        }
+    }, [data.length]);
+
     return (
         <>
             {isLoading ? (
@@ -28,9 +35,9 @@ const CourseContent = ({ id, user }: Props) => {
 
                     <div className="w-full grid 800px:grid-cols-10">
                         <Heading
-                            title={data[activeVideo]?.title}
+                            title={data[activeVideo]?.title || ""}
                             description="anything"
-                            keywords={data[activeVideo]?.tags}
+                            keywords={data[activeVideo]?.tags || []}
                         />
                         <div className="col-span-7">
                             <CourseContentMedia
